@@ -7,54 +7,206 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <div class="toggle-container">
+            <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+            <label for="theme-toggle" class="toggle-label">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+                <span class="toggle-ball"></span>
+            </label>
+        </div>
+    </header>
+
     <section class="team">
         <div class="center">
             <h1>Our Team</h1>
         </div>
         <div class="team-content">
-            <div class="box">
-                <img src="./sachin.jpeg">
+            <div class="box" onclick="showModal('sachin')">
+                <img src="sachin.jpeg" alt="Sachin Singhal">
                 <h3>Sachin Singhal</h3>
-                
                 <div class="icons">
-                    <a href="https://github.com/12sachingupta"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/melosachin/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="mailto: yopro401@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="https://github.com/12sachingupta" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/melosachin/" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:yopro401@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
                 </div>
             </div>
-            <div class="box">
-                <img src="./Vibrant and detailed 3D people to make your work pop! · Icons8 (2).jpeg">
+            <div class="box" onclick="showModal('khushi')">
+                <img src="Vibrant and detailed 3D people to make your work pop! · Icons8 (2).jpeg" alt="Khushi Rathi">
                 <h3>Khushi Rathi</h3>
                 <div class="icons">
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" title="Email"><i class="fa-regular fa-envelope"></i></a>
                 </div>
             </div>
-            <div class="box">
-                <img src="./sagar.jpeg">
+            <div class="box" onclick="showModal('sagar')">
+                <img src="sagar.jpeg" alt="Sagar Agrawal">
                 <h3>Sagar Agrawal</h3>
                 <div class="icons">
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/sagar-agrawal-12276b21a/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="mailto: sagaragrawal1644@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/sagar-agrawal-12276b21a/" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:sagaragrawal1644@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
                 </div>
             </div>
-            <div class="box">
-                <img src="./Vibrant and detailed 3D people to make your work pop! · Icons8 (1).jpeg">
+            <div class="box" onclick="showModal('suhani')">
+                <img src="Vibrant and detailed 3D people to make your work pop! · Icons8 (1).jpeg" alt="Suhani Sharma">
                 <h3>Suhani Sharma</h3>
                 <div class="icons">
-                    <a href="https://github.com/suhani-sharmaa"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/suhanisharmaaa/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="mailto: ssuhani2909@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="https://github.com/suhani-sharmaa" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/suhanisharmaaa/" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:ssuhani2909@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal Structure -->
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalName"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="chatbotSection">
+        <button id="chatbotToggle" class="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div id="chatbotContainer" class="chatbot-container">
+            <div id="chatbotHeader">
+                <h2>Chatbot</h2>
+                <span id="closeChatbot" class="close-chatbot">&times;</span>
+            </div>
+            <div id="chatbotMessages" class="chatbot-messages"></div>
+            <div id="chatbotInputContainer">
+                <input type="text" id="chatbotInput" placeholder="Type a message..." />
+                <button id="sendChatbotMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Dark/Light Mode Toggle
+        const toggleSwitch = document.querySelector('.toggle-checkbox');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        toggleSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Show Modal
+        function showModal(name) {
+            var modal = document.getElementById("teamModal");
+            var modalName = document.getElementById("modalName");
+            var modalDescription = document.getElementById("modalDescription");
+
+            if (name === 'sachin') {
+                modalName.textContent = "Sachin Singhal";
+                modalDescription.textContent = "Sachin's detailed description goes here.";
+            } else if (name === 'khushi') {
+                modalName.textContent = "Khushi Rathi";
+                modalDescription.textContent = "Khushi's detailed description goes here.";
+            } else if (name === 'sagar') {
+                modalName.textContent = "Sagar Agrawal";
+                modalDescription.textContent = "Sagar's detailed description goes here.";
+            } else if (name === 'suhani') {
+                modalName.textContent = "Suhani Sharma";
+                modalDescription.textContent = "Suhani's detailed description goes here.";
+            }
+
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("teamModal");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("teamModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Message sent successfully!');
+        });
+
+        // Chatbot Functionality
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const sendChatbotMessage = document.getElementById('sendChatbotMessage');
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.style.display = 'block';
+        });
+
+        closeChatbot.addEventListener('click', () => {
+            chatbotContainer.style.display = 'none';
+        });
+
+        sendChatbotMessage.addEventListener('click', () => {
+            const message = chatbotInput.value;
+            if (message.trim() !== '') {
+                const userMessage = document.createElement('div');
+                userMessage.className = 'chatbot-message user-message';
+                userMessage.textContent = message;
+                chatbotMessages.appendChild(userMessage);
+                chatbotInput.value = '';
+
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'chatbot-message bot-message';
+                    botMessage.textContent = 'This is a placeholder bot response.';
+                    chatbotMessages.appendChild(botMessage);
+                }, 1000);
+            }
+        });
+    </script>
 </body>
 </html>
