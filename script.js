@@ -62,28 +62,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function sendMessage() {
+    async function sendMessage() {
         const userMessage = chatbotInput.value.trim();
         if (userMessage) {
             addMessage(userMessage, 'user-message');
             chatbotInput.value = '';
 
-            // Simulate chatbot response with a delay
-            setTimeout(() => {
-                addMessage('Hello! How can I assist you today?', 'bot-message');
-            }, 1000);
+            const botResponse = await getBotResponse(userMessage);
+            addMessage(botResponse, 'bot-message');
         }
     }
 
     function addMessage(message, className) {
         const messageElement = document.createElement('div');
-        messageElement.textContent = message;
+        messageElement.innerHTML = message;
         messageElement.classList.add(className);
         chatbotMessages.appendChild(messageElement);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
-    // Voice Recognition for Chatbot (Experimental Feature)
+    async function getBotResponse(message) {
+        // Simulate an AI-powered response (replace with actual API call)
+        const response = await fetch('https://api.example.com/chatbot', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message })
+        });
+        const data = await response.json();
+        return data.reply;
+    }
+
+    // Voice Interaction for Chatbot (Advanced Feature)
     if ('webkitSpeechRecognition' in window) {
         const recognition = new webkitSpeechRecognition();
         recognition.continuous = false;
@@ -106,6 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('startVoiceRecognition').addEventListener('click', () => {
             recognition.start();
         });
+    }
+
+    // Text-to-Speech for Bot Responses
+    function speak(text) {
+        const speech = new SpeechSynthesisUtterance(text);
+        speech.lang = 'en-US';
+        speechSynthesis.speak(speech);
     }
 
     // Service Worker for PWA
