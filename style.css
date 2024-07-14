@@ -244,6 +244,65 @@ body {
 }
 
 /* Chatbot */
+/* ...existing CSS... */
+
+/* New styles for chatbot messages */
+.chatbot-messages {
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.user-message {
+    background-color: #f0f8ff;
+    color: #003366;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    align-self: flex-end;
+    max-width: 80%;
+}
+
+.bot-message {
+    background-color: #20b2aa;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    align-self: flex-start;
+    max-width: 80%;
+}
+
+.chatbot-input-container {
+    display: flex;
+    padding: 10px;
+    background-color: var(--background-color);
+}
+
+.chatbot-input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #b0e0e6;
+    border-radius: 5px;
+}
+
+.chatbot-input-container button {
+    background-color: #20b2aa;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.chatbot-input-container button:hover {
+    transform: translateY(-5px);
+}
 
 /* ...existing CSS... */
 
