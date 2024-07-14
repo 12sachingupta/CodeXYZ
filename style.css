@@ -89,6 +89,7 @@ body {
     color: var(--text-color);
 }
 
+
 .team-content {
     display: flex;
     justify-content: center;
@@ -243,6 +244,28 @@ body {
 }
 
 /* Chatbot */
+
+/* ...existing CSS... */
+
+/* New styles for voice recognition button */
+#startVoiceRecognition {
+    background-color: #20b2aa; /* Light Sea Green */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 70px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+#startVoiceRecognition:hover {
+    transform: translateY(-5px);
+}
+
 .chatbot-toggle {
     position: fixed;
     bottom: 20px;
